@@ -19,6 +19,53 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eGl-nN-xhq">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExpenseCellId" rowHeight="68" id="Cvo-e6-QQa" customClass="ExpenseCell" customModule="FinanceTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="68"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cvo-e6-QQa" id="QE1-at-riG">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRM-v3-j0b">
+                                                    <rect key="frame" x="358.5" y="24" width="35.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="98s-zM-gdB">
+                                                    <rect key="frame" x="20" y="13" width="63" height="42"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUD-qx-rSr">
+                                                            <rect key="frame" x="0.0" y="0.0" width="63" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="atH-G1-vlB">
+                                                            <rect key="frame" x="0.0" y="25" width="63" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="98s-zM-gdB" firstAttribute="centerY" secondItem="QE1-at-riG" secondAttribute="centerY" id="Ch8-6R-hdq"/>
+                                                <constraint firstItem="ZRM-v3-j0b" firstAttribute="centerY" secondItem="QE1-at-riG" secondAttribute="centerY" id="NOu-Y0-dcW"/>
+                                                <constraint firstItem="ZRM-v3-j0b" firstAttribute="trailing" secondItem="QE1-at-riG" secondAttribute="trailingMargin" id="RWc-8n-bjK"/>
+                                                <constraint firstItem="98s-zM-gdB" firstAttribute="leading" secondItem="QE1-at-riG" secondAttribute="leadingMargin" id="VhP-zs-CQx"/>
+                                                <constraint firstItem="ZRM-v3-j0b" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="98s-zM-gdB" secondAttribute="trailing" constant="50" id="XTX-2a-N0f"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="categoryLabel" destination="tUD-qx-rSr" id="K9F-HK-SXY"/>
+                                            <outlet property="commentLabel" destination="atH-G1-vlB" id="PuS-Vs-ZPF"/>
+                                            <outlet property="costLabel" destination="ZRM-v3-j0b" id="XWn-HE-5bG"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -43,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="106"/>
+            <point key="canvasLocation" x="298.55072463768118" y="105.80357142857143"/>
         </scene>
         <!--Add ExpenseVC-->
         <scene sceneID="eFz-ZY-Rzm">
@@ -57,8 +104,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
                                     <navigationItem title="Add Expense" id="fq7-GZ-YQb">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="uGz-0k-NG7"/>
-                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="6gn-3s-qHx"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="uGz-0k-NG7">
+                                            <connections>
+                                                <action selector="cancelButtonTapped:" destination="A9w-Cb-S87" id="Slu-nf-R9x"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="6gn-3s-qHx">
+                                            <connections>
+                                                <action selector="saveButtonTapped:" destination="A9w-Cb-S87" id="D3d-X6-hTx"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -70,7 +125,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="56t-YL-ZoR">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Comment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="56t-YL-ZoR">
                                         <rect key="frame" x="0.0" y="42" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -94,6 +149,11 @@
                             <constraint firstItem="hcA-l0-XqA" firstAttribute="top" secondItem="nW5-ax-LNT" secondAttribute="bottom" constant="25" id="ytX-DV-SjE"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="categoryTF" destination="YUY-mC-zsJ" id="yQM-fE-LAZ"/>
+                        <outlet property="commentTF" destination="56t-YL-ZoR" id="0U5-dy-lh3"/>
+                        <outlet property="costTF" destination="RDl-Y9-2hB" id="upz-df-PuT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YiA-8g-g1T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

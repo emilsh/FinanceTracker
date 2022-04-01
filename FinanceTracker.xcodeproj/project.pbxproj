@@ -14,7 +14,12 @@
 		49D8A46627F6B5FD0058B92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49D8A46527F6B5FD0058B92B /* Assets.xcassets */; };
 		49D8A46927F6B5FD0058B92B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49D8A46727F6B5FD0058B92B /* LaunchScreen.storyboard */; };
 		49D8A47127F6B9A50058B92B /* AddExpenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D8A47027F6B9A50058B92B /* AddExpenseVC.swift */; };
-		49D8A47527F6BEBA0058B92B /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D8A47427F6BEBA0058B92B /* Expense.swift */; };
+		49D8A47727F6C6880058B92B /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D8A47627F6C6880058B92B /* CoreDataStack.swift */; };
+		49D8A47A27F6C6BC0058B92B /* FinanceTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49D8A47827F6C6BC0058B92B /* FinanceTracker.xcdatamodeld */; };
+		49D8A48127F6C7E70058B92B /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D8A47F27F6C7E70058B92B /* Expense+CoreDataClass.swift */; };
+		49D8A48227F6C7E70058B92B /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D8A48027F6C7E70058B92B /* Expense+CoreDataProperties.swift */; };
+		49D8A48427F6C9280058B92B /* FTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D8A48327F6C9280058B92B /* FTManager.swift */; };
+		49D8A48727F6CAB90058B92B /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D8A48627F6CAB90058B92B /* ExpenseCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +32,12 @@
 		49D8A46827F6B5FD0058B92B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49D8A46A27F6B5FD0058B92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49D8A47027F6B9A50058B92B /* AddExpenseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseVC.swift; sourceTree = "<group>"; };
-		49D8A47427F6BEBA0058B92B /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		49D8A47627F6C6880058B92B /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		49D8A47927F6C6BC0058B92B /* FinanceTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FinanceTracker.xcdatamodel; sourceTree = "<group>"; };
+		49D8A47F27F6C7E70058B92B /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
+		49D8A48027F6C7E70058B92B /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		49D8A48327F6C9280058B92B /* FTManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTManager.swift; sourceTree = "<group>"; };
+		49D8A48627F6CAB90058B92B /* ExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +70,7 @@
 		49D8A45B27F6B5FC0058B92B /* FinanceTracker */ = {
 			isa = PBXGroup;
 			children = (
+				49D8A48527F6CA390058B92B /* View */,
 				49D8A47327F6BEAC0058B92B /* Model */,
 				49D8A45C27F6B5FC0058B92B /* AppDelegate.swift */,
 				49D8A45E27F6B5FC0058B92B /* SceneDelegate.swift */,
@@ -68,6 +79,9 @@
 				49D8A46527F6B5FD0058B92B /* Assets.xcassets */,
 				49D8A46727F6B5FD0058B92B /* LaunchScreen.storyboard */,
 				49D8A46A27F6B5FD0058B92B /* Info.plist */,
+				49D8A47627F6C6880058B92B /* CoreDataStack.swift */,
+				49D8A47827F6C6BC0058B92B /* FinanceTracker.xcdatamodeld */,
+				49D8A48327F6C9280058B92B /* FTManager.swift */,
 			);
 			path = FinanceTracker;
 			sourceTree = "<group>";
@@ -84,9 +98,18 @@
 		49D8A47327F6BEAC0058B92B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				49D8A47427F6BEBA0058B92B /* Expense.swift */,
+				49D8A47F27F6C7E70058B92B /* Expense+CoreDataClass.swift */,
+				49D8A48027F6C7E70058B92B /* Expense+CoreDataProperties.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		49D8A48527F6CA390058B92B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49D8A48627F6CAB90058B92B /* ExpenseCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,11 +183,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49D8A48127F6C7E70058B92B /* Expense+CoreDataClass.swift in Sources */,
 				49D8A46127F6B5FC0058B92B /* MainViewController.swift in Sources */,
+				49D8A48727F6CAB90058B92B /* ExpenseCell.swift in Sources */,
+				49D8A47A27F6C6BC0058B92B /* FinanceTracker.xcdatamodeld in Sources */,
 				49D8A45D27F6B5FC0058B92B /* AppDelegate.swift in Sources */,
+				49D8A48227F6C7E70058B92B /* Expense+CoreDataProperties.swift in Sources */,
 				49D8A45F27F6B5FC0058B92B /* SceneDelegate.swift in Sources */,
+				49D8A48427F6C9280058B92B /* FTManager.swift in Sources */,
+				49D8A47727F6C6880058B92B /* CoreDataStack.swift in Sources */,
 				49D8A47127F6B9A50058B92B /* AddExpenseVC.swift in Sources */,
-				49D8A47527F6BEBA0058B92B /* Expense.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +412,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		49D8A47827F6C6BC0058B92B /* FinanceTracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				49D8A47927F6C6BC0058B92B /* FinanceTracker.xcdatamodel */,
+			);
+			currentVersion = 49D8A47927F6C6BC0058B92B /* FinanceTracker.xcdatamodel */;
+			path = FinanceTracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 49D8A45127F6B5FC0058B92B /* Project object */;
 }
