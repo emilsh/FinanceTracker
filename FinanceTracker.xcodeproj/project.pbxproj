@@ -20,6 +20,7 @@
 		49D8A48227F6C7E70058B92B /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D8A48027F6C7E70058B92B /* Expense+CoreDataProperties.swift */; };
 		49D8A48427F6C9280058B92B /* FTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D8A48327F6C9280058B92B /* FTManager.swift */; };
 		49D8A48727F6CAB90058B92B /* ExpenseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D8A48627F6CAB90058B92B /* ExpenseCell.swift */; };
+		AD3A692727F7984600B73D5C /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3A692627F7984600B73D5C /* AlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		49D8A48027F6C7E70058B92B /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		49D8A48327F6C9280058B92B /* FTManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTManager.swift; sourceTree = "<group>"; };
 		49D8A48627F6CAB90058B92B /* ExpenseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCell.swift; sourceTree = "<group>"; };
+		AD3A692627F7984600B73D5C /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				49D8A46027F6B5FC0058B92B /* MainViewController.swift */,
 				49D8A47027F6B9A50058B92B /* AddExpenseVC.swift */,
+				AD3A692627F7984600B73D5C /* AlertController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				49D8A48227F6C7E70058B92B /* Expense+CoreDataProperties.swift in Sources */,
 				49D8A45F27F6B5FC0058B92B /* SceneDelegate.swift in Sources */,
 				49D8A48427F6C9280058B92B /* FTManager.swift in Sources */,
+				AD3A692727F7984600B73D5C /* AlertController.swift in Sources */,
 				49D8A47727F6C6880058B92B /* CoreDataStack.swift in Sources */,
 				49D8A47127F6B9A50058B92B /* AddExpenseVC.swift in Sources */,
 			);
@@ -348,6 +352,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -377,6 +382,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
