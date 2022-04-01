@@ -9,37 +9,42 @@ import Foundation
 import CoreData
 
 class FTManager {
-  static let shared = FTManager()
-  private init() {}
-  
-  let coreDataStack = CoreDataStack(modelName: "FinanceTracker")
-  
-  func fetchExpenses() -> [Expense] {
+    static let shared = FTManager()
+    private init() {}
     
-    let expensesFetch: NSFetchRequest<Expense> = Expense.fetchRequest()
+    let coreDataStack = CoreDataStack(modelName: "FinanceTracker")
     
-    do {
-      let results = try coreDataStack.managedContext.fetch(expensesFetch)
-      if results.isEmpty {
-        return []
-      } else {
-        return results
-      }
-    } catch let error as NSError {
-      print("Fetch error: \(error) description: \(error.userInfo)")
-    }
-    return []
-  }
-  
-  func saveExpense(category: String, cost: Double, comment: String = "") -> Expense {
+    func fetchExpenses() -> [Expense] {
         
-    let expense = Expense(context: coreDataStack.managedContext)
-    expense.category = category
-    expense.date = Date()
-    expense.comment = comment
-    expense.cost = cost
+        let expensesFetch: NSFetchRequest<Expense> = Expense.fetchRequest()
+        
+        do {
+            let results = try coreDataStack.managedContext.fetch(expensesFetch)
+            if results.isEmpty {
+                return []
+            } else {
+                return results
+            }
+        } catch let error as NSError {
+            print("Fetch error: \(error) description: \(error.userInfo)")
+        }
+        return []
+    }
     
-    coreDataStack.saveContext()
-    return expense
-  }
+    func saveExpense(category: String, cost: Double, comment: String = "") -> Expense {
+        
+        let expense = Expense(context: coreDataStack.managedContext)
+        expense.category = category
+        expense.date = Date()
+        expense.comment = comment
+        expense.cost = cost
+        
+        coreDataStack.saveContext()
+        return expense
+    }
+    
+    func deleteExpense(expense: Expense) {
+        coreDataStack.managedContext.delete(expense)
+        coreDataStack.saveContext()
+    }
 }
