@@ -31,14 +31,15 @@ class FTManager {
     return []
   }
   
-  func saveExpense(_ expense: Expense) {
+  func saveExpense(category: String, cost: Double, comment: String = "") -> Expense {
         
-    let iExpense = Expense(context: coreDataStack.managedContext)
-    iExpense.category = expense.category
-    iExpense.date = Date()
-    iExpense.comment = expense.comment
-    iExpense.cost = expense.cost
+    let expense = Expense(context: coreDataStack.managedContext)
+    expense.category = category
+    expense.date = Date()
+    expense.comment = comment
+    expense.cost = cost
     
     coreDataStack.saveContext()
+    return expense
   }
 }

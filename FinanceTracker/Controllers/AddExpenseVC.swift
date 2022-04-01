@@ -13,6 +13,8 @@ class AddExpenseVC: UIViewController {
   @IBOutlet weak var commentTF: UITextField!
   @IBOutlet weak var costTF: UITextField!
   
+  weak var delegate: AddExpenseVCDelegate?
+  
   override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,11 +39,8 @@ class AddExpenseVC: UIViewController {
       return
     }
     
-    let expense = Expense()
-    expense.category = category
-    expense.cost = costValue
-    FTManager.shared.saveExpense(expense)
-    
+    let expense = FTManager.shared.saveExpense(category: category, cost: costValue, comment: commentTF.text ?? "")
+    delegate?.expenseSaved(expense)
     dismiss(animated: true)
     
     
@@ -49,4 +48,8 @@ class AddExpenseVC: UIViewController {
   
   
 
+}
+
+protocol AddExpenseVCDelegate: AnyObject {
+  func expenseSaved(_ expense: Expense)
 }

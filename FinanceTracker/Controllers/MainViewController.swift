@@ -17,7 +17,17 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    tableView.dataSource = self
+    tableView.delegate = self
+    
     expenses = FTManager.shared.fetchExpenses()
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "addExpenseSegueId" {
+      guard let destination = segue.destination as? AddExpenseVC else { return }
+      destination.delegate = self
+    }
   }
   
 }
@@ -36,5 +46,16 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     return cell
   }
   
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 70.0
+  }
+  
+}
+
+extension MainViewController: AddExpenseVCDelegate {
+  func expenseSaved(_ expense: Expense) {
+    expenses.append(expense)
+    tableView.reloadData()
+  }
 }
 
