@@ -47,4 +47,12 @@ class FTManager {
         coreDataStack.managedContext.delete(expense)
         coreDataStack.saveContext()
     }
+    
+    func editExpense(_ expense: Expense, editedCategory: String, editedCost: Double, editedComment: String = "") {
+        expense.category = editedCategory
+        expense.cost = editedCost
+        expense.comment = editedComment
+        expense.date = Date()
+        coreDataStack.saveContext()
+    }
 }

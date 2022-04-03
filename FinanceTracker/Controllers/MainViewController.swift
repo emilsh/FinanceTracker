@@ -27,6 +27,10 @@ class MainViewController: UIViewController {
         if segue.identifier == "addExpenseSegueId" {
             guard let destination = segue.destination as? AddExpenseVC else { return }
             destination.delegate = self
+            
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            destination.expense = expenses[indexPath.row]
+            destination.index = indexPath.row
         }
     }
     
@@ -60,11 +64,22 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             FTManager.shared.deleteExpense(expense: expense)
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //tableView.deselectRow(at: indexPath, animated: true)
+        //expense = expenses[indexPath.row]
+        performSegue(withIdentifier: "addExpenseSegueId", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension MainViewController: AddExpenseVCDelegate {
     func expenseSaved(_ expense: Expense) {
         expenses.append(expense)
+        tableView.reloadData()
+    }
+    func expenseEdited(_ expense: Expense, index: Int) {
+        expenses[index] = expense
         tableView.reloadData()
     }
 }

@@ -14,16 +14,18 @@ class AddExpenseVC: UIViewController {
   @IBOutlet weak var costTF: UITextField!
   
   weak var delegate: AddExpenseVCDelegate?
+    var expense: Expense?
+    var index: Int?
   
   override func viewDidLoad() {
         super.viewDidLoad()
-
+        configureEditedParams()
         // Do any additional setup after loading the view.
     }
     
 
   //MARK: - Actions
-  
+    
   @IBAction func cancelButtonTapped(_ sender: Any) {
     dismiss(animated: true)
   }
@@ -43,11 +45,14 @@ class AddExpenseVC: UIViewController {
       return
     }
     
-    let expense = FTManager.shared.saveExpense(category: category, cost: costValue, comment: commentTF.text ?? "")
-    delegate?.expenseSaved(expense)
-    dismiss(animated: true)
-    
-    
+      guard let expense = expense else {
+          saveNewExpense(category: category, cost: costValue, comment: commentTF.text ?? "")
+          dismiss(animated: true)
+          return
+      }
+      
+      saveEditedExpense(expense: expense, category: category, cost: costValue, comment: commentTF.text ?? "")
+      dismiss(animated: true)
   }
 }
 
@@ -67,8 +72,27 @@ extension AddExpenseVC {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.red]
         )
     }
+    
+    private func configureEditedParams() {
+        guard let expense = expense else { return }
+        categoryTF.text = expense.category
+        commentTF.text = expense.comment
+        costTF.text = "\(expense.cost)"
+    }
+    
+    private func saveNewExpense(category: String, cost: Double, comment: String) {
+        let expense = FTManager.shared.saveExpense(category: category, cost: cost, comment: comment)
+        delegate?.expenseSaved(expense)
+    }
+    
+    private func saveEditedExpense(expense: Expense, category: String, cost: Double, comment: String) {
+        guard let index = index else { return }
+        FTManager.shared.editExpense(expense, editedCategory: category, editedCost: cost, editedComment: comment)
+        delegate?.expenseEdited(expense, index: index)
+    }
 }
 
 protocol AddExpenseVCDelegate: AnyObject {
   func expenseSaved(_ expense: Expense)
+  func expenseEdited(_ expense: Expense, index: Int)
 }
